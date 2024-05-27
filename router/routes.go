@@ -1,38 +1,17 @@
 package router
 
 import (
-	"net/http"
-
 	"github.com/gin-gonic/gin"
+	"github.com/thiagoCalazans-dev/go-api-opportunities.git/handler"
 )
 
 func initializeRoutes(r *gin.Engine) {
 	v1 := r.Group("/api/v1")
 	{
-		v1.GET("/opportunity", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "get opportunity",
-			})
-		})
-		v1.POST("/opportunity", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "get opportunity",
-			})
-		})
-		v1.PUT("/opportunity", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "get opportunity",
-			})
-		})
-		v1.DELETE("/opportunity", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "get opportunity",
-			})
-		})
-		v1.GET("/opportunities", func(ctx *gin.Context) {
-			ctx.JSON(http.StatusOK, gin.H{
-				"msg": "get opportunity",
-			})
-		})
+		v1.GET("/opportunity", handler.ShowOportunity)
+		v1.POST("/opportunity", handler.CreateOportunity)
+		v1.PUT("/opportunity", handler.UpdateOportunity)
+		v1.DELETE("/opportunity", handler.RemoveOportunity)
+		v1.GET("/opportunities", handler.ListOportunity)
 	}
 }
