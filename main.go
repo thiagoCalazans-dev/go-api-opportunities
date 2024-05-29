@@ -19,4 +19,5 @@ func main() {
 	}
 
 	router.Initialize()
+	logger.Info("running..")
 }
