@@ -7,7 +7,7 @@ func errParamIsRequired(name, typ string) error {
 	return fmt.Errorf("param: %s (type %s) is required", name, typ)
 }
 
-type CreateOportunityRequest struct {
+type CreateOpportunityRequest struct {
 	Role     string `json:"role"`
 	Company  string `json:"company"`
 	Location string `json:"location"`
@@ -16,7 +16,7 @@ type CreateOportunityRequest struct {
 	Salary   int64  `json:"salary"`
 }
 
-func (r *CreateOportunityRequest) Validate() error {
+func (r *CreateOpportunityRequest) Validate() error {
 	if r.Role == "" {
 		errParamIsRequired("role", "string")
 	}
@@ -38,7 +38,7 @@ func (r *CreateOportunityRequest) Validate() error {
 	return nil
 }
 
-type UpdateOportunityRequest struct {
+type UpdateOpportunityRequest struct {
 	Role     string `json:"role"`
 	Company  string `json:"company"`
 	Location string `json:"location"`
@@ -47,7 +47,7 @@ type UpdateOportunityRequest struct {
 	Salary   int64  `json:"salary"`
 }
 
-func (r *UpdateOportunityRequest) Validate() error {
+func (r *UpdateOpportunityRequest) Validate() error {
 	// If any field is provided, validation is truthy
 	if r.Role != "" || r.Company != "" || r.Location != "" || r.Remote != nil || r.Link != "" || r.Salary > 0 {
 		return nil

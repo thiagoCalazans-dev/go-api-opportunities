@@ -8,6 +8,18 @@ import (
 	"github.com/thiagoCalazans-dev/go-api-opportunities.git/schema"
 )
 
+// @BasePath /api/v1
+
+// @Summary Remove opportunity
+// @Description Remove a new job opportunity
+// @Tags opportunity
+// @Accept json
+// @Produce json
+// @Param id query string true "Opportunity identification"
+// @Success 200 {object} RemoveOpportunityResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 404 {object} ErrorResponse
+// @Router /opportunity [delete]
 func RemoveOportunity(ctx *gin.Context) {
 	id := ctx.Query("id")
 	if id == "" {

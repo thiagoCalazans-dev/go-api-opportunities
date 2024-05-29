@@ -8,6 +8,18 @@ import (
 	"github.com/thiagoCalazans-dev/go-api-opportunities.git/schema"
 )
 
+// @BasePath /api/v1
+
+// @Summary Show opportunity
+// @Description Show a new job opportunity
+// @Tags opportunity
+// @Accept json
+// @Produce json
+// @Param id query string true "Opportunity identification"
+// @Success 200 {object} ShowOpportunityResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 404 {object} ErrorResponse
+// @Router /opportunity [get]
 func ShowOportunity(ctx *gin.Context) {
 	id := ctx.Query("id")
 	if id == "" {

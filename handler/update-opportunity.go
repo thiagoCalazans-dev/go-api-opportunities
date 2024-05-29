@@ -7,8 +7,22 @@ import (
 	"github.com/thiagoCalazans-dev/go-api-opportunities.git/schema"
 )
 
+// @BasePath /api/v1
+
+// @Summary Update opportunity
+// @Description update a new job opportunity
+// @Tags opportunity
+// @Accept json
+// @Produce json
+// @Param id query string true "Opportunity identification"
+// @Param request body UpdateOpportunityRequest true "Request body"
+// @Success 200 {object} UpdateOpportunityResponse
+// @Failure 400 {object} ErrorResponse
+// @Failure 404 {object} ErrorResponse
+// @Failure 500 {object} ErrorResponse
+// @Router /opportunity [put]
 func UpdateOportunity(ctx *gin.Context) {
-	request := UpdateOportunityRequest{}
+	request := UpdateOpportunityRequest{}
 
 	ctx.BindJSON(&request)
 
